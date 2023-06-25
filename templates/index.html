@@ -4,10 +4,121 @@
     <meta charset="utf-8" />
     <title>Webpack Starter</title>
     <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <script defer="defer" src="../dist/index.min.js"></script>
-    <link href="../dist/index.min.css" rel="stylesheet" />
+    <!-- <script defer="defer" src="../dist/index.min.js"></script>
+    <script defer="defer" src="../dist/index.min.js"></script> -->
+    <link href="../build/style.min.css" rel="stylesheet" />
   </head>
   <body>
-    <div class="card-square-ratio"></div>
+    <!-- CSS Pre Processer => Post CSS, SCSS, SASS, LESS -->
+    <!-- 
+      SMACSS + SCSS = folder structure
+      - base
+      - layout 
+      - theme
+          - templates 
+          - pages
+      - module
+          - components, 
+              - atom, 
+              - molecus, 
+              - organization
+      - state 
+      - utils / abstracts
+          - scss mixins
+          - scss functions
+      - vendor / libs / library
+     -->
+
+    <!-- BEM ARCHETECTURE
+      - block
+      - element
+      - modifier
+      // กฎของ BEM
+      // block จะไม่มี __ หรือ -- ต่อท้าย
+      // element จะมี __ นำหน้าเสมอ และตามด้วย blog
+      // ห้ามประกาศ element ไว้นอก block ของมัน
+      // modifier จะมี -- นำหน้าเสมอ
+      // การใช้ modifier จะต้องมี element หรือ block ประกาศไว้ก่อนเสมอ        
+    -->
+    <div class="wrapper">
+      <div class="banner">
+        <!-- breadcrumb -->
+        <div class="breadcrumb breadcrumb--white breadcrumb--lg mx-2">
+          <div class="breadcrumb__item"></div>
+          <div class="breadcrumb__item"></div>
+        </div>
+
+        <!-- card -->
+        <div class="card card--yellow">
+          <!-- button -->
+          <div class="button">
+            <div class="button__prefix"></div>
+            <div class="button__text"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card-container">
+      <!-- 1 block -->
+      <div class="card">Card 1</div>
+
+      <!-- 2 modifier ของ block -->
+      <div class="card card--yellow">Card 2</div>
+
+      <!-- 3 element -->
+      <div class="card">
+        <div class="card__header">Card Header</div>
+        <div class="card__footer">
+          <div class="button">
+            <div class="button__prefix"></div>
+            <div class="button__text"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 4 modifier ของ element -->
+      <div class="card">
+        <div class="card__header card__header--green">header</div>
+        <div class="card__footer">
+          <div class="button">
+            <div class="button__prefix"></div>
+            <div class="button__text"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ui element (module) / component / block (component, tempalte-parts, template)
+  
+    -->
+
+    <!--     
+      Component OOCSS
+      - atom
+      - molecus
+      - organization
+     -->
+
+    <!-- button - atom component
+      - icon
+      - text
+    -->
+
+    <!-- card - molecules component
+      - icon
+      - button
+    -->
+
+    <!-- banner - molecules component
+      - image
+      - text
+      - button banner__button, button
+    -->
+
+    <!-- QA Archetecture
+      - 1. ใช้งานง่าย Usability
+      - 2. Scalability สามารถเพิ่มได้ง่าย
+    -->
   </body>
 </html>

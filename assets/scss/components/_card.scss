@@ -1,60 +1,43 @@
-.card {
-  @include flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  @include square;
-  @include bg-color(red);
+// BEM
 
-  &__title {
-    color: white;
-    font-weight: bold;
-  }
+// กฎของ BEM
+// block จะไม่มี __ หรือ -- ต่อท้าย
+// element จะมี __ นำหน้าเสมอ
+// modifier จะมี -- นำหน้าเสมอ
+// การใช้ modifier จะต้องมี element หรือ block ประกาศไว้ก่อนเสมอ
 
-  &__body {
-    color: white;
-  }
-}
-
-.card-round {
-  @include flex-center;
-  @include square(400px);
-  @include bg-color(yellow);
-  border-radius: 20px;
-}
-
-.card-confirm {
-  @include flex-center;
-  @include square;
-
-  color: white;
-  font-weight: bold;
-  @include bg-color(green);
-
-  background-image: url('https://www.flaticon.com/svg/static/icons/svg/1828/1828665.svg');
-  background-size: contain;
-  background-position: center;
-}
-
-.parent {
+// block __element --modifier
+.card-container {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
 }
 
-.card-square-ratio {
-  width: 100%;
-  // = ความกว้างของตัวแม่ที่มันเกาะอยู่
-  padding-top: ratio(300, 160);
+// Block (BEM)
+.card {
+  width: 200px;
+  height: 300px;
+  background-color: blue;
 
-  @include bg-color(blue);
-  border-radius: 20px;
-}
+  // Modifier
+  &--yellow {
+    background-color: yellow;
+  }
 
-.card-1810 {
-  width: 100%;
-  // = ความกว้างของตัวแม่ที่มันเกาะอยู่
-  padding-top: ratio(18, 10);
+  // // Element จะต้องมีแค่ __ ต่อหนึ่ง Block จะต้องไม่มี --
+  &__header {
+    background-color: white;
 
-  @include bg-color(blue);
-  border-radius: 20px;
+    &--green {
+      background-color: green;
+    }
+  }
+
+  // // Element
+  &__footer {
+    background-color: red;
+  }
+
+  &__button {
+    background-color: green;
+  }
 }

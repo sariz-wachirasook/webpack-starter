@@ -1,0 +1,9 @@
+# folder
+dist
+.nuxt
+.output
+
+# file
+marker.js
+components.d.ts
+nuxt.d.ts
