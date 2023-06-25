@@ -1,32 +1,45 @@
 const path = require('path');
+const webpack = require('webpack');
 
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
+const devMode = process.env.NODE_ENV !== 'production';
+
 module.exports = {
   entry: {
-    index: ['./assets/js/index.js'],
+    script: ['./assets/js/index.js'],
   },
+
   output: {
-    filename: '[name].min.js',
-    path: path.resolve(__dirname, 'dist'),
+    filename: 'script.min.js',
+    path: path.resolve(__dirname, 'build'),
   },
 
   module: {
     rules: [
       {
-        test: /\.scss$/,
-        use: [MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader'],
+        test: /\.css$/i,
+        use: [MiniCssExtractPlugin.loader, 'css-loader', 'postcss-loader'],
       },
       {
-        test: /\.css$/,
-        use: [MiniCssExtractPlugin.loader, 'css-loader', 'postcss-loader'],
+        test: /\.scss$/,
+        use: [MiniCssExtractPlugin.loader, , 'css-loader', 'sass-loader'],
       },
     ],
   },
-
   plugins: [
     new MiniCssExtractPlugin({
-      filename: '[name].min.css',
+      filename: 'style.min.css',
     }),
   ],
+  resolve: {
+    alias: {
+      jquery: 'jquery/src/jquery',
+    },
+  },
+
+  stats: {
+    errorDetails: true,
+    children: true,
+  },
 };

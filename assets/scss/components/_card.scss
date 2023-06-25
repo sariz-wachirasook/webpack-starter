@@ -1,3 +1,60 @@
 .card {
-  background-color: blue;
+  @include flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  @include square;
+  @include bg-color(red);
+
+  &__title {
+    color: white;
+    font-weight: bold;
+  }
+
+  &__body {
+    color: white;
+  }
+}
+
+.card-round {
+  @include flex-center;
+  @include square(400px);
+  @include bg-color(yellow);
+  border-radius: 20px;
+}
+
+.card-confirm {
+  @include flex-center;
+  @include square;
+
+  color: white;
+  font-weight: bold;
+  @include bg-color(green);
+
+  background-image: url('https://www.flaticon.com/svg/static/icons/svg/1828/1828665.svg');
+  background-size: contain;
+  background-position: center;
+}
+
+.parent {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+.card-square-ratio {
+  width: 100%;
+  // = ความกว้างของตัวแม่ที่มันเกาะอยู่
+  padding-top: ratio(300, 160);
+
+  @include bg-color(blue);
+  border-radius: 20px;
+}
+
+.card-1810 {
+  width: 100%;
+  // = ความกว้างของตัวแม่ที่มันเกาะอยู่
+  padding-top: ratio(18, 10);
+
+  @include bg-color(blue);
+  border-radius: 20px;
 }

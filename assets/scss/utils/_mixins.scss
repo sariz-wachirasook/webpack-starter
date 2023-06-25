@@ -1,0 +1,28 @@
+@mixin flex {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+@mixin flex-center {
+  @include flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin square($size: 200px) {
+  width: $size;
+  height: $size;
+}
+
+@mixin bg-color($color) {
+  background-color: $color;
+}
+
+@mixin bg($path) {
+  background-image: url($path);
+  background-size: contain;
+  background-position: center;
+}
